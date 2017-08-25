@@ -1,2 +1,4 @@
 include *.txt
 recursive-include examples *.txt *.py
+include caravagene/template.html
+recursive-include caravagene/symbols *
