@@ -1,7 +1,6 @@
-""" geneblocks/__init__.py """
+"""caravagene/__init__.py """
 
 # __all__ = []
 
-from .geneblocks import BlocksFinder
-
+from .caravagene import Part, Construct, ConstructList, SYMBOL_FILES
 from .version import __version__

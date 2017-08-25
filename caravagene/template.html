@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <h1> {{ title }} </h1>
+    {% for construct in constructs %}
+      <h3>{{ construct.name }}</h3>
+      {% for part in construct.parts%}
+        <div class='sbol' style="{{ part.style }}">
+          <p> {{part.label}} </p>
+        </div>
+      {% endfor %}
+    {% endfor %}
+  </body>
+</html>
+
+<style>
+body {
+  font-family: '{{font}}', Helvetica;
+}
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0em;
+}
+.sbol p {
+  float: top;
+  font-size: 0.85em;
+
+}
+.sbol {
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    overflow:hidden;
+    vertical-align: top;
+    margin-right: -0.3em;
+    margin-left: -0.3em;
+    line-height:.8em;
+    padding-left: 1em;
+    padding-right: 1em;
+    height:8em;
+    min-width:4em;
+    max-width:9em;
+    text-align:center;
+    background-size: auto 60%;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+    font-size: {{size}}px;
+}
+</style>
