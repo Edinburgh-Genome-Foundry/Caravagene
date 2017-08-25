@@ -96,6 +96,6 @@ Licence
 --------
 
 Caravagene is an open-source software originally written at the `Edinburgh Genome Foundry
-<http://www.genomefoundry.io>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/DnaCauldron>`_ under the MIT licence (copyright Edinburgh Genome Foundry).
+<http://www.genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_
+and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT licence (copyright Edinburgh Genome Foundry).
 Everyone is welcome to contribute !
