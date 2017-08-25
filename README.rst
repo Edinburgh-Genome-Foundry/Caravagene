@@ -9,14 +9,6 @@ Caravagene
 
 Caravagene is a Python library to plot schemas of DNA constructs from a list of parts:
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/construct.jpeg
-   :alt: [logo]
-   :align: center
-   :width: 600px
-
-Usage:
-------
-
 .. code:: python
 
     from caravagene import Part, Construct, ConstructList
