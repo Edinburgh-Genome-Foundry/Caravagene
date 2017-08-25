@@ -75,6 +75,7 @@ Installation
 Caravagene requires `WkHTMLtoPDF <https://wkhtmltopdf.org/>`_ to be installed. On Ubuntu, install it with
 
 .. code:: shell
+
     (sudo) apt-get install wkhtmltopdf
 
 
