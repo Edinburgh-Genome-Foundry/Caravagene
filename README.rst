@@ -64,10 +64,10 @@ showing multiple constructs:
     )
     my_constructs.to_pdf('multiconstruct.pdf')
 
-    .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/screen_capture.png
-       :alt: [logo]
-       :align: center
-       :width: 600px
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/screen_capture.png
+   :alt: [logo]
+   :align: center
+   :width: 600px
 
 It is also possible to add support for other categories/symbols, as follows:
 
