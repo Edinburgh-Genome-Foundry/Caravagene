@@ -1,5 +1,6 @@
 Caravagene
 =============
+
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png
    :alt: [logo]
    :align: center
@@ -63,7 +64,7 @@ showing multiple constructs:
 
 It is also possible to add support for other categories/symbols, as follows:
 
-.. code:: python:
+.. code:: python
 
     from caravagene import SYMBOL_FILES
     SYMBOL_FILES['my-new-category'] = 'path/to/some/symbol.svg'

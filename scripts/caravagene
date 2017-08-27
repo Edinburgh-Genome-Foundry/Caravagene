@@ -1,0 +1,25 @@
+#!/usr/bin/env python
+
+"""
+Caravagene Command Line Interface
+
+Usage:
+  caravagene <source> <target>
+
+Where ``source`` is an excel spreadsheet, target either a pdf, html or
+image file.
+"""
+
+from docopt import docopt
+from caravagene import ConstructList
+
+if __name__ == "__main__":
+    params = docopt(__doc__)
+    constructs = ConstructList(params["<source>"])
+    target = params["<target>"]
+    if target.endswith('html'):
+        constructs.to_html(target)
+    elif target.endswith('pdf'):
+        constructs.to_pdf(target)
+    else:
+        constructs.to_image(target)

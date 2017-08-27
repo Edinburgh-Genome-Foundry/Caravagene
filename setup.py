@@ -12,4 +12,7 @@ setup(name='caravagene',
     long_description=open('README.rst').read(),
     license='MIT',
     keywords="SBOL DNA assembly plot",
+    scripts=['scripts/caravagene'],
+    install_requires=['docopt', 'xlrd', 'pandas'],
+    include_package_data=True,
     packages= find_packages(exclude='docs'))

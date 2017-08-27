@@ -7,6 +7,7 @@ try:
     PANDAS_INSTALLED = True
 except:
     PANDAS_INSTALLED = False
+
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 DEFAULT_SYMBOLS_DIR = os.path.join(THIS_DIR, "symbols")
 with open(os.path.join(THIS_DIR, "template.html"), 'r') as f:
