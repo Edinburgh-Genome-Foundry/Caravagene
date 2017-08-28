@@ -76,9 +76,10 @@ Finally, here is an example using an Excel spreadsheet:
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_sample.png
    :alt: [logo]
    :align: center
-   :width: 600px
+   :width: 400px
 
 **Code:**
+
 .. code:: python
 
     from caravagene import ConstructList
@@ -87,14 +88,16 @@ Finally, here is an example using an Excel spreadsheet:
 
 or **command-line:**
 
+.. code:: shell
+
     caravagene my_spreadsheet.xlsx my_schemas.pdf
 
 **Output:**
 
- .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png
-    :alt: [logo]
-    :align: center
-    :width: 600px
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png
+  :alt: [logo]
+  :align: center
+  :width: 600px
 
 
 Installation
