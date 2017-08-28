@@ -57,17 +57,44 @@ showing multiple constructs:
     )
     my_constructs.to_pdf('multiconstruct.pdf')
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/screen_capture.png
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples//multiconstruct_screen_capture.png
    :alt: [logo]
    :align: center
    :width: 600px
 
-It is also possible to add support for other categories/symbols, as follows:
+ Note that it is also possible to add support for other categories/symbols, as follows:
 
+ .. code:: python
+
+     from caravagene import SYMBOL_FILES
+     SYMBOL_FILES['my-new-category'] = 'path/to/some/symbol.svg'
+
+Finally, here is an example using an Excel spreadsheet:
+
+**Spreadsheet:**
+
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_sample.png
+   :alt: [logo]
+   :align: center
+   :width: 600px
+
+**Code:**
 .. code:: python
 
-    from caravagene import SYMBOL_FILES
-    SYMBOL_FILES['my-new-category'] = 'path/to/some/symbol.svg'
+    from caravagene import ConstructList
+    my_constructs = ConstructList("my_spreadsheet.xlsx")
+    my_constructs.to_pdf('my_schemas.pdf')
+
+or **command-line:**
+
+    caravagene my_spreadsheet.xlsx my_schemas.pdf
+
+**Output:**
+
+ .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png
+    :alt: [logo]
+    :align: center
+    :width: 600px
 
 
 Installation

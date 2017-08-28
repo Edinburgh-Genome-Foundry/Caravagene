@@ -1,4 +1,5 @@
 import os
+import re
 import subprocess as sp
 
 from jinja2 import Template
@@ -26,8 +27,12 @@ class Part:
         if self.category not in SYMBOL_FILES:
             raise ValueError("Unkown category " + category)
         self.url = SYMBOL_FILES[self.category]
-        self.style = "; ".join([
-            "background-color: %s" % bg_color,
+        self.bg_color = bg_color
+
+    @property
+    def style(self):
+        return "; ".join([
+            "background-color: %s" % self.bg_color,
             "background-image: url(%s)" % self.url
         ])
 
@@ -35,11 +40,23 @@ class Part:
 class Construct:
 
     def __init__(self, parts, name=''):
+
         if isinstance(parts, pandas.DataFrame):
-            parts = [
-                Part(label=row.label, category=row.category)
-                for i, row in parts.iterrows()
-            ]
+            def row_to_part(row):
+                part = Part(label=row.label, category=row.category)
+                if hasattr(row, 'style'):
+                    style = str(row.style)
+                    if 'bold' in style:
+                        part.label = "<b>%s</b>" % part.label
+                    color = re.findall(r'bg:(\S+)', style)
+                    if len(color) > 0:
+                        part.bg_color = {
+                            'blue': '#ECF3FF',
+                            'green': '#DFFFE3',
+                            'red': '#FFEBE9'
+                        }.get(color[0], color[0])
+                return part
+            parts = [row_to_part(row) for i, row in parts.iterrows()]
         self.parts = parts
         self.name = name
 
@@ -63,7 +80,7 @@ class ConstructList:
         self.constructs = constructs
         self.title = title
 
-    def to_html(self, size=15, font='Raleway'):
+    def to_html(self, size=13, font='Raleway'):
         return template.render(constructs=self.constructs, title=self.title,
                                size=size, font=font)
 
