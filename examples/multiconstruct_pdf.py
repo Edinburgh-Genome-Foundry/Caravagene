@@ -1,22 +1,23 @@
 from caravagene import Part, Construct, ConstructList
 
 my_constructs = ConstructList(
-    title="My constructs",
+    title="My assemblies",
+    note='This is an example.',
     constructs=[
-        Construct(name="ASM1", parts=[
-            Part('HA1', category='homology-arm'),
-            Part('rc1', category='recombinase-recognition-sequence'),
-            Part('my promoter', category='promoter'),
-            Part('RNA stability', category='rna-stability-sequence'),
-            Part('<i>acs</i>', category='CDS'),
-            Part('PolyA', category='terminator'),
-            Part('I1', category='insulator'),
+        Construct(name="Assembly 1", parts=[
+            Part('homology-arm', label='HA1'),
+            Part('recombinase-recognition-sequence', label='rc1'),
+            Part('promoter', label='my promoter'),
+            Part('rna-stability-sequence', label='RNA stability'),
+            Part('CDS', label='<i>acs</i>'),
+            Part('terminator', label='PolyA'),
+            Part('insulator', label='I1'),
         ]),
-        Construct(name="ASM2", parts=[
-            Part('my promoter', category='promoter'),
-            Part('gene with a very very long name', category='CDS'),
-            Part('PolyA', category='terminator'),
-            Part('I1', category='insulator')
+        Construct(name="Assembly 2", parts=[
+            Part('promoter', label='my promoter'),
+            Part('CDS', label='gene with a very very long name'),
+            Part('terminator', label='PolyA'),
+            Part('insulator', label='I1')
         ])
     ]
 )

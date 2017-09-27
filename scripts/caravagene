@@ -4,7 +4,7 @@
 Caravagene Command Line Interface
 
 Usage:
-  caravagene <source> <target>
+  caravagene <source> <target> [--watch]
 
 Where ``source`` is an excel spreadsheet, target either a pdf, html or
 image file.
@@ -12,14 +12,49 @@ image file.
 
 from docopt import docopt
 from caravagene import ConstructList
+import time
+from watchdog.observers import Observer
+from watchdog.events import PatternMatchingEventHandler
 
 if __name__ == "__main__":
     params = docopt(__doc__)
-    constructs = ConstructList(params["<source>"])
-    target = params["<target>"]
-    if target.endswith('html'):
-        constructs.to_html(target)
-    elif target.endswith('pdf'):
-        constructs.to_pdf(target)
+
+    def convert():
+        """Convert the spreadsheet to the selected format."""
+        constructs = ConstructList(params["<source>"])
+        target = params["<target>"]
+        if target.endswith('html'):
+            constructs.to_html(target)
+        elif target.endswith('pdf'):
+            constructs.to_pdf(target)
+        else:
+            constructs.to_image(target)
+
+    if params["--watch"]:
+
+        class MyHandler(PatternMatchingEventHandler):
+            """Custom handler for this one precise source file."""
+
+            patterns = ['*.xls', '*.xlsx']
+
+            def on_modified(self, event):
+                """When the file is modified, convert again."""
+                print ('Converting...')
+                try:
+                    convert()
+                except Exception as err:
+                    print ("Errored !!! ", "\n", err)
+
+        event_handler = MyHandler()
+        observer = Observer()
+        observer.schedule(event_handler, path='.', recursive=False)
+        observer.start()
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            observer.stop()
+        observer.join()
+
     else:
-        constructs.to_image(target)
+        convert()

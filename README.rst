@@ -15,10 +15,10 @@ Caravagene is a Python library to plot schemas of DNA constructs from a list of 
     from caravagene import Part, Construct, ConstructList
 
     constructs = ConstructList([Construct([
-        Part('my promoter', category='promoter'),
-        Part('gene with a very very long name', category='CDS'),
-        Part('PolyA', category='terminator'),
-        Part('I1', category='insulator')
+        Part('promoter', label='my promoter'),
+        Part('CDS', label='gene with a very very long name'),
+        Part('terminator', label='PolyA'),
+        Part('insulator', label='I1')
     ])])
 
     constructs.to_image('construct.jpeg')
@@ -62,7 +62,7 @@ showing multiple constructs:
    :align: center
    :width: 600px
 
- Note that it is also possible to add support for other categories/symbols, as follows:
+ Note that it is also possible to extend Caravagene to support other categories/symbols, as follows:
 
  .. code:: python
 
@@ -78,7 +78,7 @@ Finally, here is an example using an Excel spreadsheet:
    :align: center
    :width: 400px
 
-**Code:**
+**Python code:**
 
 .. code:: python
 
@@ -86,11 +86,17 @@ Finally, here is an example using an Excel spreadsheet:
     my_constructs = ConstructList("my_spreadsheet.xlsx")
     my_constructs.to_pdf('my_schemas.pdf')
 
-or **command-line:**
+or **command-line (one-time use):**
 
 .. code:: shell
 
     caravagene my_spreadsheet.xlsx my_schemas.pdf
+
+or **command-line (re-render when the spreadsheet changes on disk):**
+
+.. code:: shell
+
+    caravagene my_spreadsheet.xlsx my_schemas.pdf --watch
 
 **Output:**
 
