@@ -2,7 +2,9 @@
 <html lang="en">
   <body>
     <h1> {{ title }} </h1>
-    <p class='note'><b>Note: </b>{{ note }}</p>
+    {% if note != '' %}
+      <p class='note'><b>Note: </b>{{ note }}</p>
+    {% endif %}
     {% for construct in constructs %}
     <div class='construct'>
       <h3>{{ construct.name }}</h3>
