@@ -57,7 +57,7 @@ showing multiple constructs:
     )
     my_constructs.to_pdf('multiconstruct.pdf')
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples//multiconstruct_screen_capture.png
+.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct_screen_capture.png
    :alt: [logo]
    :align: center
    :width: 600px
