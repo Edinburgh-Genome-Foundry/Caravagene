@@ -62,9 +62,9 @@ showing multiple constructs:
    :align: center
    :width: 600px
 
- Note that it is also possible to extend Caravagene to support other categories/symbols, as follows:
+Note that it is also possible to extend Caravagene to support other categories/symbols, as follows:
 
- .. code:: python
+.. code:: python
 
      from caravagene import SYMBOL_FILES
      SYMBOL_FILES['my-new-category'] = 'path/to/some/symbol.svg'
