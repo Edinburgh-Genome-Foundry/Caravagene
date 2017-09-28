@@ -159,9 +159,9 @@ class ConstructList:
         process = sp.Popen(
             ["wkhtmltopdf", '--quiet', '--page-size', self.page_size,
              '--orientation', self.orientation, '-', outfile],
-             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
+            stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
         )
-        out, err = process.communicate(self.to_html().encode())
+        out, err = process.communicate(self.to_html().encode('utf-8'))
         if outfile == '-':
             return out
 
