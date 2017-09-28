@@ -92,8 +92,8 @@ class Construct:
 class ConstructList:
 
     def __init__(self, constructs, title='auto', note='', size=13,
-                 font='Raleway', orientation='portrait', width=600,
-                 page_size='A4'):
+                 font='Helvetica', orientation='portrait', width=600,
+                 page_size='A4', use_google_fonts=False):
 
         self.note = note
         self.size = size
@@ -102,6 +102,7 @@ class ConstructList:
         self.width = width
         self.page_size = page_size
         self.title = title
+        self.use_google_fonts = use_google_fonts
 
         if isinstance(constructs, str):
             if not PANDAS_INSTALLED:
@@ -145,7 +146,7 @@ class ConstructList:
 
         result = template.render(
             constructs=self.constructs, title=self.title, note=self.note,
-            size=self.size, font=self.font
+            size=self.size, font=self.font, google_font=self.use_google_fonts
         )
         if outfile is not None:
             with open(outfile, 'w+') as f:
@@ -158,6 +159,7 @@ class ConstructList:
             outfile = '-'
         process = sp.Popen(
             ["wkhtmltopdf", '--quiet', '--page-size', self.page_size,
+             '--load-media-error-handling', "ignore",
              '--orientation', self.orientation, '-', outfile],
             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
         )

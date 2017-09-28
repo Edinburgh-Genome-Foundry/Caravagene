@@ -31,6 +31,10 @@
 </html>
 
 <style>
+{% if google_font %}
+  @import url("https://fonts.googleapis.com/css?family={{font.replace(' ', '+')}}");
+{% endif %}
+
 body {
   font-family: '{{font}}', Helvetica;
 }
