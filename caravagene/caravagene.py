@@ -141,19 +141,19 @@ class ConstructList:
             ] if d in csts_dict)
         )
 
-    def to_html(self, filepath=None):
+    def to_html(self, outfile=None):
 
         result = template.render(
             constructs=self.constructs, title=self.title, note=self.note,
             size=self.size, font=self.font
         )
-        if filepath is not None:
-            with open(filepath, 'w+') as f:
+        if outfile is not None:
+            with open(outfile, 'w+') as f:
                 f.write(result)
         else:
             return result
 
-    def to_pdf(self, outfile):
+    def to_pdf(self, outfile=None):
         if outfile is None:
             outfile = '-'
         process = sp.Popen(
@@ -162,9 +162,7 @@ class ConstructList:
              stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
         )
         out, err = process.communicate(self.to_html().encode())
-        if len(err):
-            print (err)
-        if outfile is None:
+        if outfile == '-':
             return out
 
     def to_image(self, outfile=None, extension=None):
