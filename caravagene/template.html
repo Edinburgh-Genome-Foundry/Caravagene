@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <body>
-    <h1> {{ title }} </h1>
+    <h1> {{ title |e }} </h1>
     {% if note != '' %}
-      <p class='note'><b>Note: </b>{{ note }}</p>
+      <p class='note'><b>Note: </b>{{ note |e }}</p>
     {% endif %}
     {% for construct in constructs %}
     <div class='construct'>
-      <h3>{{ construct.name }}</h3>
+      <h3>{{ construct.name |e }}</h3>
       {% if construct.note != '' %}
         <p>
-          {{ construct.note }}
+          {{ construct.note |e }}
         </p>
       {% endif %}
       {% for part in construct.parts %}
         <div class='sbol' style='part.style'>
           <p class='label'>
-            {{part.label}}
+            {{part.label |e }}
             {% if part.sublabel != '' %}
-              <br/><span class='grey'>{{ part.sublabel }}</span>
+              <br/><span class='grey'>{{ part.sublabel |e }}</span>
             {% endif %}
           </p>
-          <p class='subscript grey'> {{part.subscript}} </p>
-          <div class="symbol {{'reversed' if part.reversed else ''}}" style="{{ part.style }}"></div>
+          <p class='subscript grey'> {{part.subscript |e }} </p>
+          <div class="symbol {{'reversed' if part.reversed else ''}}" style="{{ part.style |e }}"></div>
         </div>
       {% endfor %}
     </div>
@@ -36,7 +36,7 @@
 {% endif %}
 
 body {
-  font-family: '{{font}}', Helvetica;
+  font-family: '{{font |e }}', Helvetica;
 }
 h1 {
   text-align: center;

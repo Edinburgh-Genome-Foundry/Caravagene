@@ -182,5 +182,5 @@ class ConstructList:
              '-', outfile],
             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE)
         out, err = process.communicate(self.to_html().encode('utf-8'))
-        if outfile is None:
+        if outfile == '-':
             return out
