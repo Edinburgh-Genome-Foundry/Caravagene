@@ -162,6 +162,9 @@ class ConstructList:
             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
         )
         out, err = process.communicate(self.to_html().encode('utf-8'))
+        if len(err) > 0:
+            raise IOError("Something went wrong while generating the PDF: %s"
+                          % err)
         if outfile == '-':
             return out
 
