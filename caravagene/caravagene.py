@@ -159,7 +159,6 @@ class ConstructList:
             outfile = '-'
         process = sp.Popen(
             ["wkhtmltopdf", '--quiet', '--page-size', self.page_size,
-             '--load-media-error-handling', "ignore",
              '--orientation', self.orientation, '-', outfile],
             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
         )
