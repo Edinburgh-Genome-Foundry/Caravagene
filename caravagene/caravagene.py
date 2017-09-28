@@ -40,6 +40,13 @@ class Part:
             "background-image: url(%s)" % self.url
         ])
 
+    @staticmethod
+    def from_dict(part_dict):
+        return Part(**dict((d, part_dict[d]) for d in [
+            'category', 'label', 'subscript', 'reversed',
+            'sublabel', 'bg_color'
+        ] if d in part_dict))
+
 
 class Construct:
 
@@ -71,6 +78,15 @@ class Construct:
         self.parts = parts
         self.name = name
         self.note = note
+
+    @staticmethod
+    def from_dict(cst_dict):
+        return Construct(
+            parts = [Part.from_dict(part)
+                     for part in cst_dict['parts']],
+            name=cst_dict['name'],
+            note=cst_dict['note']
+        )
 
 
 class ConstructList:
@@ -114,6 +130,17 @@ class ConstructList:
 
         self.constructs = constructs
 
+    @staticmethod
+    def from_dict(csts_dict):
+        return ConstructList(
+            constructs=[Construct.from_dict(cst)
+                        for cst in csts_dict['constructs']],
+            **dict((d, csts_dict[d]) for d in [
+                'title', 'note', 'size', 'font', 'orientation',
+                'width', 'page_size'
+            ] if d in csts_dict)
+        )
+
     def to_html(self, filepath=None):
 
         result = template.render(
@@ -151,7 +178,7 @@ class ConstructList:
              "--width", "%d" % self.width,
              "--disable-smart-width",
              '-', outfile],
-             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE)
+            stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE)
         out, err = process.communicate(self.to_html().encode('utf-8'))
         if outfile is None:
             return out
