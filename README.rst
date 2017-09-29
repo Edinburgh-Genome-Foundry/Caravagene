@@ -8,7 +8,7 @@ Caravagene
 
 
 
-Caravagene is a Python library to plot schemas of DNA constructs from a list of parts:
+Caravagene (full documentation `here <https://edinburgh-genome-foundry.github.io/Caravagene/>`_) is a Python library to plot schemas of DNA constructs from a list of parts:
 
 .. code:: python
 
@@ -62,7 +62,7 @@ showing multiple constructs:
    :align: center
    :width: 600px
 
-Note that it is also possible to extend Caravagene to support other categories/symbols, as follows:
+Note that ``ConstructsList`` can be supplied with a fontthat it is also possible to extend Caravagene to support other categories/symbols, as follows:
 
 .. code:: python
 
