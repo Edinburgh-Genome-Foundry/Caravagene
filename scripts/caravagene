@@ -7,7 +7,9 @@ Usage:
   caravagene <source> <target> [--watch]
 
 Where ``source`` is an excel spreadsheet, target either a pdf, html or
-image file.
+image file. Option ``watch``
+
+
 """
 
 from docopt import docopt

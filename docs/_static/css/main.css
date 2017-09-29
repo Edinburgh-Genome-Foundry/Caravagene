@@ -1,0 +1,33 @@
+body, h1, h2, h3 {
+    font-family: Raleway;
+}
+
+.wy-nav-content-wrap {
+    background: none
+}
+
+.wy-nav-side {
+    background-image: url("../images/pw_maze_red.png");
+}
+
+.wy-menu-vertical a {
+    color: black
+}
+
+.wy-menu-vertical a:hover {
+    background-color: #f2d7d7
+}
+
+.wy-side-nav-search, .wy-nav-top {
+    background-color: #f2d7d7;
+    background-image: url("../images/pw_maze_red.png");
+}
+
+.edgeLabel {
+  background-color: #fcfcfc;
+}
+
+
+.section {
+    opacity: 1.0 !important;
+}

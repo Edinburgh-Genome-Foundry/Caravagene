@@ -20,9 +20,34 @@ SYMBOL_FILES = {
 
 
 class Part:
+    """Represent a genetic part.
 
-    def __init__(self, category, label='', subscript='', reversed=False,
-                 sublabel='', bg_color='none'):
+    Parameters
+    ----------
+    category
+      Either 'promoter', 'CDS'... Defines the symbol displayed for this part
+
+    label
+      String that will be displayed on top of the part
+
+    sublabel
+      Note that will be written in grey below the label
+
+    subscript
+      Note that will be written below the part
+
+    reversed
+      True/False. Whether the part is in direct or indirect sense.
+
+    bg_color
+      String representing any html color, which will be used as background
+      to highlight this part.
+
+    """
+
+    def __init__(self, category, label='', sublabel='', subscript='',
+                 reversed=False, bg_color='none'):
+        """Initialize."""
         self.label = label
         self.category = category.lower()
         if self.category not in SYMBOL_FILES:
@@ -35,6 +60,7 @@ class Part:
 
     @property
     def style(self):
+        """Define the CSS style from the part's parameters."""
         return "; ".join([
             "background-color: %s" % self.bg_color,
             "background-image: url(%s)" % self.url
@@ -42,6 +68,12 @@ class Part:
 
     @staticmethod
     def from_dict(part_dict):
+        """Create a part from a dictionary.
+
+        This is intended for Schema imports from JSON in web applications.
+        This dictionnary should have the same parameters as the __init__
+        function (other parameters will be ignored).
+        """
         return Part(**dict((d, part_dict[d]) for d in [
             'category', 'label', 'subscript', 'reversed',
             'sublabel', 'bg_color'
@@ -49,9 +81,26 @@ class Part:
 
 
 class Construct:
+    """Represent a genetic construct will several parts.
+
+    Parameters
+    ----------
+    parts
+      A list of Parts, in the order in which they appear in the construct.
+      Alternatively, a pandas dataframe can be provided, with columns
+      'label', 'category', 'sublabel', 'subscript', 'style'. The last column,
+      'style' can be for instance "bg:green bold".
+
+    name
+      Name of the construct. Will be displayed on top of the construct's plot.
+
+    note
+      Some text that will be displayed between the construct's name and plot.
+
+    """
 
     def __init__(self, parts, name='', note=''):
-
+        """Initialize."""
         if isinstance(parts, pandas.DataFrame):
             def get_attr(row, attr):
                 value = getattr(row, attr, '')
@@ -81,6 +130,12 @@ class Construct:
 
     @staticmethod
     def from_dict(cst_dict):
+        """Create a construct from a dictionary.
+
+        This is intended for Schema imports from JSON in web applications.
+        This dictionnary should have the same parameters as the __init__
+        function (other parameters will be ignored).
+        """
         return Construct(
             parts = [Part.from_dict(part)
                      for part in cst_dict['parts']],
@@ -90,11 +145,47 @@ class Construct:
 
 
 class ConstructList:
+    """Represent a genetic construct will several parts.
+
+    Parameters
+    ----------
+    constructs
+      A list of Constructss, in the order in which they appear in the plot.
+      Alternatively, a path to an excel spreadsheet can be provided (see docs
+      for explanations on the spreadsheet format).
+
+    title
+      Title for this list of constructs. Will be displayed on top of the plots.
+
+    note
+      Some text that will be displayed between the title and the plots.
+
+    size
+      Size of the font for labels, which also scales the size of sublabel,
+      subscript, and the symbol itself.
+
+    orientation
+      'portrait' or 'landscape'. Orientation of the page when exporting to PDF
+
+    page_size
+      Page format when exporting to PDF
+
+    width
+      Page width when exporting to an image
+
+    font
+      Name of the font to use for all texts
+
+    use_google_fonts
+      Whether the font should be obtained from Google Fonts (will only work
+      with an Internet access).
+
+    """
 
     def __init__(self, constructs, title='auto', note='', size=13,
                  font='Helvetica', orientation='portrait', width=600,
                  page_size='A4', use_google_fonts=False):
-
+        """Initialize."""
         self.note = note
         self.size = size
         self.font = font
@@ -125,7 +216,6 @@ class ConstructList:
                 for sheet in sheet_names if sheet != 'options'
             ]
 
-
         if self.title == "auto":
             self.title = ''
 
@@ -133,6 +223,12 @@ class ConstructList:
 
     @staticmethod
     def from_dict(csts_dict):
+        """Create a constructs list from a dictionary.
+
+        This is intended for Schema imports from JSON in web applications.
+        This dictionnary should have the same parameters as the __init__
+        function (other parameters will be ignored).
+        """
         return ConstructList(
             constructs=[Construct.from_dict(cst)
                         for cst in csts_dict['constructs']],
@@ -143,7 +239,7 @@ class ConstructList:
         )
 
     def to_html(self, outfile=None):
-
+        """Return a HTML page ready for browser rendering of the plots."""
         result = template.render(
             constructs=self.constructs, title=self.title, note=self.note,
             size=self.size, font=self.font, google_font=self.use_google_fonts
@@ -155,6 +251,11 @@ class ConstructList:
             return result
 
     def to_pdf(self, outfile=None):
+        """Return a PDF with all the construct plots.
+
+        If ``outfile`` is not provided, the function returns raw binary PDF
+        data as a string.
+        """
         if outfile is None:
             outfile = '-'
         process = sp.Popen(
@@ -170,6 +271,12 @@ class ConstructList:
             return out
 
     def to_image(self, outfile=None, extension=None):
+        """Return an image with all the construct plots.
+
+        If ``outfile`` is not provided, the function returns raw binary PDF
+        data as a string. In that case the extension ('png', 'jpeg') must be
+        provided.
+        """
         if outfile is None:
             outfile = '-'
         else:
