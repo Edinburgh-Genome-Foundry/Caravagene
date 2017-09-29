@@ -1,0 +1,351 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Caravagene &mdash; Caravagene 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Caravagene 0.1.0 documentation" href="#"/>
+        <link rel="next" title="Caravagene Reference manual" href="ref.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Caravagene
+          
+
+          
+            
+            <img src="_static/html_logo.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Caravagene</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ref.html">Caravagene Reference manual</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/construct_jpeg.html">Saving a construct as JPEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/multiconstruct.html">Multiconstruct plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/from_spreadsheet.html">Loading constructs from a spreadsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/from_json.html">Importing a schema from Json</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Caravagene</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Caravagene</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="caravagene">
+<h1>Caravagene<a class="headerlink" href="#caravagene" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png"><img alt="[logo]" class="align-center" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png" style="width: 600px;" /></a>
+<p>Caravagene is a Python library to plot schemas of DNA constructs from a list of parts:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caravagene</span> <span class="k">import</span> <span class="n">Part</span><span class="p">,</span> <span class="n">Construct</span><span class="p">,</span> <span class="n">ConstructList</span>
+
+<span class="n">constructs</span> <span class="o">=</span> <span class="n">ConstructList</span><span class="p">([</span><span class="n">Construct</span><span class="p">([</span>
+    <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;promoter&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;my promoter&#39;</span><span class="p">),</span>
+    <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;CDS&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;gene with a very very long name&#39;</span><span class="p">),</span>
+    <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;terminator&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PolyA&#39;</span><span class="p">),</span>
+    <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;insulator&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I1&#39;</span><span class="p">)</span>
+<span class="p">])])</span>
+
+<span class="n">constructs</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s1">&#39;construct.jpeg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/construct.jpeg"><img alt="[logo]" class="align-center" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/construct.jpeg" style="width: 600px;" /></a>
+<p>Here is another example producing <a class="reference external" href="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct.pdf">this PDF</a>
+showing multiple constructs:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caravagene</span> <span class="k">import</span> <span class="n">Part</span><span class="p">,</span> <span class="n">Construct</span><span class="p">,</span> <span class="n">ConstructList</span>
+
+<span class="n">my_constructs</span> <span class="o">=</span> <span class="n">ConstructList</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;My constructs&quot;</span><span class="p">,</span>
+    <span class="n">constructs</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Construct</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ASM1&quot;</span><span class="p">,</span> <span class="n">parts</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;HA1&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;homology-arm&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;rc1&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;recombinase-recognition-sequence&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;my promoter&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;promoter&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;RNA stability&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;rna-stability-sequence&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;&lt;i&gt;acs&lt;/i&gt;&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;CDS&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;PolyA&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;terminator&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;insulator&#39;</span><span class="p">),</span>
+        <span class="p">]),</span>
+        <span class="n">Construct</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ASM2&quot;</span><span class="p">,</span> <span class="n">parts</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;my promoter&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;promoter&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;gene with a very very long name&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;CDS&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;PolyA&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;terminator&#39;</span><span class="p">),</span>
+            <span class="n">Part</span><span class="p">(</span><span class="s1">&#39;I1&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="s1">&#39;insulator&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+<span class="n">my_constructs</span><span class="o">.</span><span class="n">to_pdf</span><span class="p">(</span><span class="s1">&#39;multiconstruct.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct_screen_capture.png"><img alt="[logo]" class="align-center" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct_screen_capture.png" style="width: 600px;" /></a>
+<p>Note that <code class="docutils literal"><span class="pre">ConstructsList</span></code> can be supplied with a fontthat it is also possible to extend Caravagene to support other categories/symbols, as follows:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caravagene</span> <span class="k">import</span> <span class="n">SYMBOL_FILES</span>
+<span class="n">SYMBOL_FILES</span><span class="p">[</span><span class="s1">&#39;my-new-category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;path/to/some/symbol.svg&#39;</span>
+</pre></div>
+</div>
+<p>Finally, here is an example using an Excel spreadsheet:</p>
+<p><strong>Spreadsheet:</strong></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_sample.png"><img alt="[logo]" class="align-center" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_sample.png" style="width: 400px;" /></a>
+<p><strong>Python code:</strong></p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">caravagene</span> <span class="k">import</span> <span class="n">ConstructList</span>
+<span class="n">my_constructs</span> <span class="o">=</span> <span class="n">ConstructList</span><span class="p">(</span><span class="s2">&quot;my_spreadsheet.xlsx&quot;</span><span class="p">)</span>
+<span class="n">my_constructs</span><span class="o">.</span><span class="n">to_pdf</span><span class="p">(</span><span class="s1">&#39;my_schemas.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or <strong>command-line (one-time use):</strong></p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">caravagene</span> <span class="n">my_spreadsheet</span><span class="o">.</span><span class="n">xlsx</span> <span class="n">my_schemas</span><span class="o">.</span><span class="n">pdf</span>
+</pre></div>
+</div>
+<p>or <strong>command-line (re-render when the spreadsheet changes on disk):</strong></p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">caravagene</span> <span class="n">my_spreadsheet</span><span class="o">.</span><span class="n">xlsx</span> <span class="n">my_schemas</span><span class="o">.</span><span class="n">pdf</span> <span class="o">--</span><span class="n">watch</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<a class="reference internal image-reference" href="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png"><img alt="[logo]" class="align-center" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png" style="width: 600px;" /></a>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Caravagene requires <a class="reference external" href="https://wkhtmltopdf.org/">WkHTMLtoPDF</a> to be installed. On Ubuntu, install it with</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">sudo</span><span class="p">)</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">wkhtmltopdf</span>
+</pre></div>
+</div>
+<p>You can install caravagene through PIP</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">caravagene</span>
+</pre></div>
+</div>
+<p>Alternatively, you can unzip the sources in a folder and type</p>
+<div class="code shell highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="licence">
+<h2>Licence<a class="headerlink" href="#licence" title="Permalink to this headline">¶</a></h2>
+<p>Caravagene is an open-source software originally written at the <a class="reference external" href="http://www.genomefoundry.org">Edinburgh Genome Foundry</a> by <a class="reference external" href="https://github.com/Zulko">Zulko</a>
+and <a class="reference external" href="https://github.com/Edinburgh-Genome-Foundry/Caravagene">released on Github</a> under the MIT licence (copyright Edinburgh Genome Foundry).
+Everyone is welcome to contribute !</p>
+<a href="https://twitter.com/share" class="twitter-share-button"
+data-text="Caravagene - A DNA construct sketching library" data-size="large" data-hashtags="synbio">Tweet
+</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+</script>
+<iframe src="http://ghbtns.com/github-btn.html?user=Edinburgh-Genome-Foundry&repo=caravagene&type=watch&count=true&size=large"
+allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="30px" margin-bottom="30px"></iframe><div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Examples</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="examples/construct_jpeg.html">Saving a construct as JPEG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/multiconstruct.html">Multiconstruct plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/from_spreadsheet.html">Loading constructs from a spreadsheet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/from_json.html">Importing a schema from Json</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ref.html" class="btn btn-neutral float-right" title="Caravagene Reference manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Edinburgh Genome Foundry.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
