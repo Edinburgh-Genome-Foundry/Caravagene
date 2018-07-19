@@ -1,11 +1,16 @@
-Caravagene
-=============
+.. raw:: html
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png
-   :alt: [logo]
-   :align: center
-   :width: 600px
+    <p align="center">
+    <img alt="caravagene Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png" width="500">
+    <br /><br />
+    </p>
 
+.. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/Caravagene.svg?branch=master
+   :target: https://travis-ci.org/Edinburgh-Genome-Foundry/lala
+   :alt: Travis CI build status
+
+.. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Caravagene/badge.svg?branch=master
+   :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/Caravagene?branch=master
 
 
 Caravagene (full documentation `here <https://edinburgh-genome-foundry.github.io/Caravagene/>`_) is a Python library to plot schemas of DNA constructs from a list of parts:
@@ -23,10 +28,11 @@ Caravagene (full documentation `here <https://edinburgh-genome-foundry.github.io
 
     constructs.to_image('construct.jpeg')
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/construct.jpeg
-   :alt: [logo]
-   :align: center
-   :width: 600px
+.. raw:: html
+
+    <p align="center">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/construct.jpeg" width="600">
+    </p>
 
 Here is another example producing `this PDF <https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct.pdf>`_
 showing multiple constructs:
@@ -57,10 +63,11 @@ showing multiple constructs:
     )
     my_constructs.to_pdf('multiconstruct.pdf')
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct_screen_capture.png
-   :alt: [logo]
-   :align: center
-   :width: 600px
+.. raw:: html
+
+    <p align="center">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/multiconstruct_screen_capture.png" width="800">
+    </p>
 
 Note that ``ConstructsList`` can be supplied with a fontthat it is also possible to extend Caravagene to support other categories/symbols, as follows:
 
@@ -73,10 +80,11 @@ Finally, here is an example using an Excel spreadsheet:
 
 **Spreadsheet:**
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_sample.png
-   :alt: [logo]
-   :align: center
-   :width: 400px
+.. raw:: html
+
+    <p align="center">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_sample.png" width="600">
+    </p>
 
 **Python code:**
 
@@ -100,10 +108,12 @@ or **command-line (re-render when the spreadsheet changes on disk):**
 
 **Output:**
 
-.. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png
-  :alt: [logo]
-  :align: center
-  :width: 600px
+
+.. raw:: html
+
+    <p align="center">
+    <img src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/examples/from_spreadsheet_screen_capture.png" width="700">
+    </p>
 
 
 Installation
