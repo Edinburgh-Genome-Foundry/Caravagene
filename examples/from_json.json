@@ -10,7 +10,7 @@
     {
      "category": "promoter",
      "symbol": null,
-     "bgColor": null,
+     "bg_color": null,
      "label": "bla bla",
      "reversed": false,
      "sublabel": "Hover us !",
@@ -38,7 +38,7 @@
     {
      "category": "IRES",
      "symbol": null,
-     "bgColor": null,
+     "bg_color": null,
      "label": "test",
      "reversed": false,
      "sublabel": "",
@@ -48,7 +48,7 @@
     {
      "category": "LTR",
      "symbol": null,
-     "bgColor": null,
+     "bg_color": null,
      "label": "test2",
      "reversed": false,
      "sublabel": "",
@@ -58,7 +58,7 @@
     {
      "category": "RNA-stability-sequence",
      "symbol": null,
-     "bgColor": null,
+     "bg_color": null,
      "label": "test3",
      "reversed": false,
      "sublabel": "",

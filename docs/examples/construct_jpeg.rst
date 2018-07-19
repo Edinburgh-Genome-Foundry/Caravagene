@@ -1,4 +1,3 @@
-.. _pattern-insertion:
 
 Saving a construct as JPEG
 -----------------------------

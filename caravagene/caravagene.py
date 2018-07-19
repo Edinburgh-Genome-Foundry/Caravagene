@@ -102,12 +102,22 @@ class Construct:
     def __init__(self, parts, name='', note=''):
         """Initialize."""
         if isinstance(parts, pandas.DataFrame):
-            def get_attr(row, attr):
+            def get_attr(row, attr, default=''):
+                if not hasattr(row, attr):
+                    return default
                 value = getattr(row, attr, '')
                 return '' if (str(value) == 'nan') else value
             def row_to_part(row):
-                label = get_attr(row, 'label')
-                part = Part(label=label, category=row.category,
+                bg_color = get_attr(row, 'bg_color', 'none')
+                bg_color = {
+                    'blue': '#ECF3FF',
+                    'green': '#DFFFE3',
+                    'red': '#FFEBE9'
+                }.get(bg_color, bg_color)
+                part = Part(label=get_attr(row, 'label'),
+                            category=row.category,
+                            reversed=get_attr(row, 'reversed', False),
+                            bg_color=bg_color,
                             subscript=get_attr(row, 'subscript'),
                             sublabel=get_attr(row, 'sublabel'))
                 style = get_attr(row, 'style')
@@ -115,13 +125,6 @@ class Construct:
                     style = str(row.style)
                     if 'bold' in style:
                         part.label = '<b>%s</b>' % part.label
-                    color = re.findall(r'bg:(\S+)', style)
-                    if len(color) > 0:
-                        part.bg_color = {
-                            'blue': '#ECF3FF',
-                            'green': '#DFFFE3',
-                            'red': '#FFEBE9'
-                        }.get(color[0], color[0])
                 return part
             parts = [row_to_part(row) for i, row in parts.iterrows()]
         self.parts = parts
@@ -197,13 +200,13 @@ class ConstructList:
 
         if isinstance(constructs, str):
             if not PANDAS_INSTALLED:
-                raise ImportError("Instal Pandas to read from spreadsheets.")
+                raise ImportError("Install Pandas to read from spreadsheets.")
             if title == 'auto':
                 self.title = os.path.splitext(os.path.basename(constructs))[0]
                 self.title = self.title.replace('_', ' ')
             sheet_names = pandas.ExcelFile(constructs).sheet_names
             if 'options' in sheet_names:
-                df = pandas.read_excel(constructs, sheetname='options')
+                df = pandas.read_excel(constructs, sheet_name='options')
                 self.__dict__.update({
                     row.field: row.value
                     for i, row in df.iterrows()
@@ -211,7 +214,7 @@ class ConstructList:
                                      'orientation', 'page_size']
                 })
             constructs = [
-                Construct(pandas.read_excel(constructs, sheetname=sheet),
+                Construct(pandas.read_excel(constructs, sheet_name=sheet),
                           name=sheet)
                 for sheet in sheet_names if sheet != 'options'
             ]
@@ -264,7 +267,8 @@ class ConstructList:
             stdin=sp.PIPE, stderr=sp.PIPE, stdout=sp.PIPE
         )
         out, err = process.communicate(self.to_html().encode('utf-8'))
-        if len(err) > 0:
+        err = err.decode()
+        if (len(err) > 0) and not ('libpng warning' in err):
             raise IOError("Something went wrong while generating the PDF: %s"
                           % err)
         if outfile == '-':
