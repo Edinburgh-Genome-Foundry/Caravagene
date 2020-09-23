@@ -1,0 +1,15 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+install:
+  - pip install --upgrade pip
+  - pip install --upgrade coveralls pytest-cov pytest
+  - sudo apt-get install wkhtmltopdf
+  - pip install -e .
+# command to run tests
+script:
+  - python -m pytest -v --cov caravagene --cov-report term-missing
+
+after_success:
+  - coveralls
