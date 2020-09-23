@@ -6,11 +6,11 @@
     </p>
 
 .. image:: https://travis-ci.org/Edinburgh-Genome-Foundry/Caravagene.svg?branch=master
-   :target: https://travis-ci.org/Edinburgh-Genome-Foundry/lala
-   :alt: Travis CI build status
+    :target: https://travis-ci.org/Edinburgh-Genome-Foundry/Caravagene
+    :alt: Travis CI build status
 
 .. image:: https://coveralls.io/repos/github/Edinburgh-Genome-Foundry/Caravagene/badge.svg?branch=master
-   :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/Caravagene?branch=master
+    :target: https://coveralls.io/github/Edinburgh-Genome-Foundry/Caravagene?branch=master
 
 
 Caravagene (full documentation `here <https://edinburgh-genome-foundry.github.io/Caravagene/>`_) is a Python library to plot schemas of DNA constructs from a list of parts:
