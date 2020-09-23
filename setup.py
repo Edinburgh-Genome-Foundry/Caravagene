@@ -11,7 +11,7 @@ setup(
     version=__version__,
     author="Zulko",
     description="",
-    long_description=open("README.rst").read(),
+    long_description=open("pypi-readme.rst").read(),
     license="MIT",
     keywords="SBOL DNA assembly plot",
     scripts=["scripts/caravagene"],
