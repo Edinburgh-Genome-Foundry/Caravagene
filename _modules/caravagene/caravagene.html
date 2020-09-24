@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,59 +11,52 @@
   
 
   
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/main.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="../../_static/css/main.css" type="text/css" />
-  
-    <link rel="stylesheet" href="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Caravagene 0.1.0 documentation" href="../../index.html"/>
-        <link rel="up" title="Module code" href="../index.html"/> 
-
-  
-  <script src="../../_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../../index.html" class="icon icon-home"> Caravagene
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> Caravagene
           
 
           
             
-            <img src="../../_static/html_logo.png" class="logo" />
+            <img src="../../_static/html_logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -89,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -111,13 +104,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">Caravagene</a>
@@ -125,9 +119,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -148,7 +143,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../../index.html">Docs</a> &raquo;</li>
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
@@ -156,8 +151,6 @@
     
     
       <li class="wy-breadcrumbs-aside">
-        
-            
         
       </li>
     
@@ -174,19 +167,21 @@
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">subprocess</span> <span class="k">as</span> <span class="nn">sp</span>
 
-<span class="kn">from</span> <span class="nn">jinja2</span> <span class="k">import</span> <span class="n">Template</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
 <span class="k">try</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">pandas</span>
+
     <span class="n">PANDAS_INSTALLED</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">except</span><span class="p">:</span>
     <span class="n">PANDAS_INSTALLED</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="n">THIS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 <span class="n">DEFAULT_SYMBOLS_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">THIS_DIR</span><span class="p">,</span> <span class="s2">&quot;symbols&quot;</span><span class="p">)</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">THIS_DIR</span><span class="p">,</span> <span class="s2">&quot;template.html&quot;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">THIS_DIR</span><span class="p">,</span> <span class="s2">&quot;template.html&quot;</span><span class="p">),</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">TEMPLATE</span> <span class="o">=</span> <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 <span class="n">SYMBOL_FILES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DEFAULT_SYMBOLS_DIR</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DEFAULT_SYMBOLS_DIR</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">DEFAULT_SYMBOLS_DIR</span><span class="p">)</span>
 <span class="p">}</span>
 
@@ -197,16 +192,16 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    category</span>
-<span class="sd">      Either &#39;promoter&#39;, &#39;CDS&#39;... Defines the symbol displayed for this part</span>
+<span class="sd">      Either &#39;promoter&#39;, &#39;CDS&#39;... Defines the symbol displayed for this part.</span>
 
 <span class="sd">    label</span>
-<span class="sd">      String that will be displayed on top of the part</span>
+<span class="sd">      String that will be displayed on top of the part.</span>
 
 <span class="sd">    sublabel</span>
-<span class="sd">      Note that will be written in grey below the label</span>
+<span class="sd">      Note that will be written in grey below the label.</span>
 
 <span class="sd">    subscript</span>
-<span class="sd">      Note that will be written below the part</span>
+<span class="sd">      Note that will be written below the part.</span>
 
 <span class="sd">    reversed</span>
 <span class="sd">      True/False. Whether the part is in direct or indirect sense.</span>
@@ -214,11 +209,17 @@
 <span class="sd">    bg_color</span>
 <span class="sd">      String representing any html color, which will be used as background</span>
 <span class="sd">      to highlight this part.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">sublabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">subscript</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-                 <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bg_color</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">category</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">sublabel</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">subscript</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="nb">reversed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">bg_color</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">label</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">category</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -233,27 +234,39 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">style</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Define the CSS style from the part&#39;s parameters.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
-            <span class="s2">&quot;background-color: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span><span class="p">,</span>
-            <span class="s2">&quot;background-image: url(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span>
-        <span class="p">])</span>
+        <span class="k">return</span> <span class="s2">&quot;; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;background-color: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">bg_color</span><span class="p">,</span>
+                <span class="s2">&quot;background-image: url(</span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="Part.from_dict"><a class="viewcode-back" href="../../ref.html#caravagene.Part.from_dict">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">from_dict</span><span class="p">(</span><span class="n">part_dict</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Create a part from a dictionary.</span>
 
 <span class="sd">        This is intended for Schema imports from JSON in web applications.</span>
-<span class="sd">        This dictionnary should have the same parameters as the __init__</span>
+<span class="sd">        This dictionary should have the same parameters as the __init__</span>
 <span class="sd">        function (other parameters will be ignored).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">Part</span><span class="p">(</span><span class="o">**</span><span class="nb">dict</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">part_dict</span><span class="p">[</span><span class="n">d</span><span class="p">])</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span>
-            <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;subscript&#39;</span><span class="p">,</span> <span class="s1">&#39;reversed&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;sublabel&#39;</span><span class="p">,</span> <span class="s1">&#39;bg_color&#39;</span>
-        <span class="p">]</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">part_dict</span><span class="p">))</span></div></div>
+        <span class="k">return</span> <span class="n">Part</span><span class="p">(</span>
+            <span class="o">**</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">part_dict</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+                <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s2">&quot;category&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;subscript&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;reversed&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;sublabel&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;bg_color&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
+                <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">part_dict</span>
+            <span class="p">)</span>
+        <span class="p">)</span></div></div>
 
 
 <div class="viewcode-block" id="Construct"><a class="viewcode-back" href="../../ref.html#caravagene.Construct">[docs]</a><span class="k">class</span> <span class="nc">Construct</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Represent a genetic construct will several parts.</span>
+    <span class="sd">&quot;&quot;&quot;Represent a genetic construct with several parts.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -268,33 +281,40 @@
 
 <span class="sd">    note</span>
 <span class="sd">      Some text that will be displayed between the construct&#39;s name and plot.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parts</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parts</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">parts</span><span class="p">,</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
-            <span class="k">def</span> <span class="nf">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
-                <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-                <span class="k">return</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;nan&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span>
+
+            <span class="k">def</span> <span class="nf">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">default</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="s2">&quot;&quot;</span> <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;nan&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="n">value</span>
+
             <span class="k">def</span> <span class="nf">row_to_part</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-                <span class="n">label</span> <span class="o">=</span> <span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">)</span>
-                <span class="n">part</span> <span class="o">=</span> <span class="n">Part</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">category</span><span class="p">,</span>
-                            <span class="n">subscript</span><span class="o">=</span><span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s1">&#39;subscript&#39;</span><span class="p">),</span>
-                            <span class="n">sublabel</span><span class="o">=</span><span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s1">&#39;sublabel&#39;</span><span class="p">))</span>
-                <span class="n">style</span> <span class="o">=</span> <span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s1">&#39;style&#39;</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">style</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">bg_color</span> <span class="o">=</span> <span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;bg_color&quot;</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">)</span>
+                <span class="n">bg_color</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;blue&quot;</span><span class="p">:</span> <span class="s2">&quot;#ECF3FF&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;green&quot;</span><span class="p">:</span> <span class="s2">&quot;#DFFFE3&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;red&quot;</span><span class="p">:</span> <span class="s2">&quot;#FFEBE9&quot;</span><span class="p">,</span>
+                <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">bg_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">)</span>
+                <span class="n">part</span> <span class="o">=</span> <span class="n">Part</span><span class="p">(</span>
+                    <span class="n">label</span><span class="o">=</span><span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">),</span>
+                    <span class="n">category</span><span class="o">=</span><span class="n">row</span><span class="o">.</span><span class="n">category</span><span class="p">,</span>
+                    <span class="nb">reversed</span><span class="o">=</span><span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;reversed&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+                    <span class="n">bg_color</span><span class="o">=</span><span class="n">bg_color</span><span class="p">,</span>
+                    <span class="n">subscript</span><span class="o">=</span><span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;subscript&quot;</span><span class="p">),</span>
+                    <span class="n">sublabel</span><span class="o">=</span><span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;sublabel&quot;</span><span class="p">),</span>
+                <span class="p">)</span>
+                <span class="n">style</span> <span class="o">=</span> <span class="n">get_attr</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">style</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
                     <span class="n">style</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">style</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="s1">&#39;bold&#39;</span> <span class="ow">in</span> <span class="n">style</span><span class="p">:</span>
-                        <span class="n">part</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;&lt;b&gt;</span><span class="si">%s</span><span class="s1">&lt;/b&gt;&#39;</span> <span class="o">%</span> <span class="n">part</span><span class="o">.</span><span class="n">label</span>
-                    <span class="n">color</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;bg:(\S+)&#39;</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
-                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                        <span class="n">part</span><span class="o">.</span><span class="n">bg_color</span> <span class="o">=</span> <span class="p">{</span>
-                            <span class="s1">&#39;blue&#39;</span><span class="p">:</span> <span class="s1">&#39;#ECF3FF&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;green&#39;</span><span class="p">:</span> <span class="s1">&#39;#DFFFE3&#39;</span><span class="p">,</span>
-                            <span class="s1">&#39;red&#39;</span><span class="p">:</span> <span class="s1">&#39;#FFEBE9&#39;</span>
-                        <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="k">if</span> <span class="s2">&quot;bold&quot;</span> <span class="ow">in</span> <span class="n">style</span><span class="p">:</span>
+                        <span class="n">part</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;&lt;b&gt;</span><span class="si">%s</span><span class="s2">&lt;/b&gt;&quot;</span> <span class="o">%</span> <span class="n">part</span><span class="o">.</span><span class="n">label</span>
                 <span class="k">return</span> <span class="n">part</span>
+
             <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">row_to_part</span><span class="p">(</span><span class="n">row</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">parts</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">parts</span> <span class="o">=</span> <span class="n">parts</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
@@ -305,14 +325,13 @@
         <span class="sd">&quot;&quot;&quot;Create a construct from a dictionary.</span>
 
 <span class="sd">        This is intended for Schema imports from JSON in web applications.</span>
-<span class="sd">        This dictionnary should have the same parameters as the __init__</span>
+<span class="sd">        This dictionary should have the same parameters as the __init__</span>
 <span class="sd">        function (other parameters will be ignored).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">Construct</span><span class="p">(</span>
-            <span class="n">parts</span> <span class="o">=</span> <span class="p">[</span><span class="n">Part</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">part</span><span class="p">)</span>
-                     <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">cst_dict</span><span class="p">[</span><span class="s1">&#39;parts&#39;</span><span class="p">]],</span>
-            <span class="n">name</span><span class="o">=</span><span class="n">cst_dict</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-            <span class="n">note</span><span class="o">=</span><span class="n">cst_dict</span><span class="p">[</span><span class="s1">&#39;note&#39;</span><span class="p">]</span>
+            <span class="n">parts</span><span class="o">=</span><span class="p">[</span><span class="n">Part</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">part</span><span class="p">)</span> <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">cst_dict</span><span class="p">[</span><span class="s2">&quot;parts&quot;</span><span class="p">]],</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">cst_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
+            <span class="n">note</span><span class="o">=</span><span class="n">cst_dict</span><span class="p">[</span><span class="s2">&quot;note&quot;</span><span class="p">],</span>
         <span class="p">)</span></div></div>
 
 
@@ -337,26 +356,34 @@
 <span class="sd">      subscript, and the symbol itself.</span>
 
 <span class="sd">    orientation</span>
-<span class="sd">      &#39;portrait&#39; or &#39;landscape&#39;. Orientation of the page when exporting to PDF</span>
+<span class="sd">      &#39;portrait&#39; or &#39;landscape&#39;. Orientation of the page when exporting to PDF.</span>
 
 <span class="sd">    page_size</span>
-<span class="sd">      Page format when exporting to PDF</span>
+<span class="sd">      Page format when exporting to PDF.</span>
 
 <span class="sd">    width</span>
-<span class="sd">      Page width when exporting to an image</span>
+<span class="sd">      Page width when exporting to an image.</span>
 
 <span class="sd">    font</span>
-<span class="sd">      Name of the font to use for all texts</span>
+<span class="sd">      Name of the font to use for all texts.</span>
 
 <span class="sd">    use_google_fonts</span>
 <span class="sd">      Whether the font should be obtained from Google Fonts (will only work</span>
 <span class="sd">      with an Internet access).</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">constructs</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
-                 <span class="n">font</span><span class="o">=</span><span class="s1">&#39;Helvetica&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;portrait&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-                 <span class="n">page_size</span><span class="o">=</span><span class="s1">&#39;A4&#39;</span><span class="p">,</span> <span class="n">use_google_fonts</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">constructs</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;auto&quot;</span><span class="p">,</span>
+        <span class="n">note</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
+        <span class="n">font</span><span class="o">=</span><span class="s2">&quot;Helvetica&quot;</span><span class="p">,</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;portrait&quot;</span><span class="p">,</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
+        <span class="n">page_size</span><span class="o">=</span><span class="s2">&quot;A4&quot;</span><span class="p">,</span>
+        <span class="n">use_google_fonts</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">note</span> <span class="o">=</span> <span class="n">note</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">size</span> <span class="o">=</span> <span class="n">size</span>
@@ -369,27 +396,37 @@
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">constructs</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">PANDAS_INSTALLED</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Instal Pandas to read from spreadsheets.&quot;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">title</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Install Pandas to read from spreadsheets.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">title</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">constructs</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
             <span class="n">sheet_names</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="n">constructs</span><span class="p">)</span><span class="o">.</span><span class="n">sheet_names</span>
-            <span class="k">if</span> <span class="s1">&#39;options&#39;</span> <span class="ow">in</span> <span class="n">sheet_names</span><span class="p">:</span>
-                <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">constructs</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="s1">&#39;options&#39;</span><span class="p">)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-                    <span class="n">row</span><span class="o">.</span><span class="n">field</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">value</span>
-                    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
-                    <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">field</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">,</span>
-                                     <span class="s1">&#39;orientation&#39;</span><span class="p">,</span> <span class="s1">&#39;page_size&#39;</span><span class="p">]</span>
-                <span class="p">})</span>
+            <span class="k">if</span> <span class="s2">&quot;options&quot;</span> <span class="ow">in</span> <span class="n">sheet_names</span><span class="p">:</span>
+                <span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">constructs</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;options&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+                    <span class="p">{</span>
+                        <span class="n">row</span><span class="o">.</span><span class="n">field</span><span class="p">:</span> <span class="n">row</span><span class="o">.</span><span class="n">value</span>
+                        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
+                        <span class="k">if</span> <span class="n">row</span><span class="o">.</span><span class="n">field</span>
+                        <span class="ow">in</span> <span class="p">[</span>
+                            <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;note&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;font&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;width&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;orientation&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;page_size&quot;</span><span class="p">,</span>
+                        <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">)</span>
             <span class="n">constructs</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">Construct</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">constructs</span><span class="p">,</span> <span class="n">sheetname</span><span class="o">=</span><span class="n">sheet</span><span class="p">),</span>
-                          <span class="n">name</span><span class="o">=</span><span class="n">sheet</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">sheet</span> <span class="ow">in</span> <span class="n">sheet_names</span> <span class="k">if</span> <span class="n">sheet</span> <span class="o">!=</span> <span class="s1">&#39;options&#39;</span>
+                <span class="n">Construct</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">constructs</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">sheet</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">sheet</span> <span class="ow">in</span> <span class="n">sheet_names</span>
+                <span class="k">if</span> <span class="n">sheet</span> <span class="o">!=</span> <span class="s2">&quot;options&quot;</span>
             <span class="p">]</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">constructs</span> <span class="o">=</span> <span class="n">constructs</span>
 
@@ -398,26 +435,38 @@
         <span class="sd">&quot;&quot;&quot;Create a constructs list from a dictionary.</span>
 
 <span class="sd">        This is intended for Schema imports from JSON in web applications.</span>
-<span class="sd">        This dictionnary should have the same parameters as the __init__</span>
+<span class="sd">        This dictionary should have the same parameters as the __init__</span>
 <span class="sd">        function (other parameters will be ignored).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ConstructList</span><span class="p">(</span>
-            <span class="n">constructs</span><span class="o">=</span><span class="p">[</span><span class="n">Construct</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">cst</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">cst</span> <span class="ow">in</span> <span class="n">csts_dict</span><span class="p">[</span><span class="s1">&#39;constructs&#39;</span><span class="p">]],</span>
-            <span class="o">**</span><span class="nb">dict</span><span class="p">((</span><span class="n">d</span><span class="p">,</span> <span class="n">csts_dict</span><span class="p">[</span><span class="n">d</span><span class="p">])</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span>
-                <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;note&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">,</span> <span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="s1">&#39;orientation&#39;</span><span class="p">,</span>
-                <span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="s1">&#39;page_size&#39;</span>
-            <span class="p">]</span> <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">csts_dict</span><span class="p">)</span>
+            <span class="n">constructs</span><span class="o">=</span><span class="p">[</span><span class="n">Construct</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">cst</span><span class="p">)</span> <span class="k">for</span> <span class="n">cst</span> <span class="ow">in</span> <span class="n">csts_dict</span><span class="p">[</span><span class="s2">&quot;constructs&quot;</span><span class="p">]],</span>
+            <span class="o">**</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">csts_dict</span><span class="p">[</span><span class="n">d</span><span class="p">])</span>
+                <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="p">[</span>
+                    <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;note&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;size&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;font&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;orientation&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;width&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;page_size&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
+                <span class="k">if</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">csts_dict</span>
+            <span class="p">)</span>
         <span class="p">)</span></div>
 
 <div class="viewcode-block" id="ConstructList.to_html"><a class="viewcode-back" href="../../ref.html#caravagene.ConstructList.to_html">[docs]</a>    <span class="k">def</span> <span class="nf">to_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return a HTML page ready for browser rendering of the plots.&quot;&quot;&quot;</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span>
-            <span class="n">constructs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constructs</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">note</span><span class="p">,</span>
-            <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">font</span><span class="p">,</span> <span class="n">google_font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_google_fonts</span>
+            <span class="n">constructs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">constructs</span><span class="p">,</span>
+            <span class="n">title</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">,</span>
+            <span class="n">note</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">note</span><span class="p">,</span>
+            <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">font</span><span class="p">,</span>
+            <span class="n">google_font</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_google_fonts</span><span class="p">,</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                 <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">result</span></div>
@@ -429,17 +478,27 @@
 <span class="sd">        data as a string.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">outfile</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+            <span class="n">outfile</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
         <span class="n">process</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-            <span class="p">[</span><span class="s2">&quot;wkhtmltopdf&quot;</span><span class="p">,</span> <span class="s1">&#39;--quiet&#39;</span><span class="p">,</span> <span class="s1">&#39;--page-size&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">page_size</span><span class="p">,</span>
-             <span class="s1">&#39;--orientation&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">outfile</span><span class="p">],</span>
-            <span class="n">stdin</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;wkhtmltopdf&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;--quiet&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;--page-size&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">page_size</span><span class="p">,</span>
+                <span class="s2">&quot;--orientation&quot;</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">orientation</span><span class="p">,</span>
+                <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+                <span class="n">outfile</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">stdin</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;Something went wrong while generating the PDF: </span><span class="si">%s</span><span class="s2">&quot;</span>
-                          <span class="o">%</span> <span class="n">err</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">outfile</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+        <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+        <span class="n">err</span> <span class="o">=</span> <span class="n">err</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="s2">&quot;libpng warning&quot;</span> <span class="ow">in</span> <span class="n">err</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;Something went wrong while generating the PDF: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">err</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">outfile</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">out</span></div>
 
 <div class="viewcode-block" id="ConstructList.to_image"><a class="viewcode-back" href="../../ref.html#caravagene.ConstructList.to_image">[docs]</a>    <span class="k">def</span> <span class="nf">to_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -450,25 +509,31 @@
 <span class="sd">        provided.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">outfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">outfile</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span>
+            <span class="n">outfile</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">outfile</span><span class="p">)[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span>
         <span class="n">process</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
-            <span class="p">[</span><span class="s2">&quot;wkhtmltoimage&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;--format&quot;</span><span class="p">,</span> <span class="n">extension</span><span class="p">,</span>
-             <span class="s2">&quot;--width&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
-             <span class="s2">&quot;--disable-smart-width&quot;</span><span class="p">,</span>
-             <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">outfile</span><span class="p">],</span>
-            <span class="n">stdin</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">outfile</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>
+            <span class="p">[</span>
+                <span class="s2">&quot;wkhtmltoimage&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;--format&quot;</span><span class="p">,</span>
+                <span class="n">extension</span><span class="p">,</span>
+                <span class="s2">&quot;--width&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">,</span>
+                <span class="s2">&quot;--disable-smart-width&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+                <span class="n">outfile</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">stdin</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">out</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">outfile</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">out</span></div></div>
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -477,11 +542,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Edinburgh Genome Foundry.
+        
+        &copy; Copyright 2017, Edinburgh Genome Foundry
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -493,38 +566,15 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.min.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>

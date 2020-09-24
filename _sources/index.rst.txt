@@ -1,5 +1,5 @@
 Caravagene
-=============
+==========
 
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png
   :alt: [logo]
@@ -61,7 +61,7 @@ showing multiple constructs:
   :align: center
   :width: 600px
 
-Note that ``ConstructsList`` can be supplied with a fontthat it is also possible to extend Caravagene to support other categories/symbols, as follows:
+Note that ``ConstructList`` can be supplied with a font. It is also possible to extend Caravagene to support other categories/symbols, as follows:
 
 .. code:: python
 
@@ -108,20 +108,20 @@ or **command-line (re-render when the spreadsheet changes on disk):**
 Installation
 -------------
 
-Caravagene requires `WkHTMLtoPDF <https://wkhtmltopdf.org/>`_ to be installed. On Ubuntu, install it with
+Caravagene requires `WkHTMLtoPDF <https://wkhtmltopdf.org/>`_ to be installed. On Ubuntu, install it with:
 
 .. code:: shell
 
    (sudo) apt-get install wkhtmltopdf
 
 
-You can install caravagene through PIP
+You can install caravagene through PIP:
 
 .. code:: shell
 
    sudo pip install caravagene
 
-Alternatively, you can unzip the sources in a folder and type
+Alternatively, you can unzip the source code in a folder and type:
 
 .. code:: shell
 
@@ -133,8 +133,8 @@ Licence
 
 Caravagene is an open-source software originally written at the `Edinburgh Genome Foundry
 <http://www.genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT licence (copyright Edinburgh Genome Foundry).
-Everyone is welcome to contribute !
+and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT licence (Copyright 2017 Edinburgh Genome Foundry).
+Everyone is welcome to contribute!
 
 
 

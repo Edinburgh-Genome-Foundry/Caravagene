@@ -1,4 +1,3 @@
-.. non_unique_kmers_minimization:
 
 Importing a schema from Json
 ----------------------------------

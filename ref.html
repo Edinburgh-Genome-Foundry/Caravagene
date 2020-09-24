@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,60 +11,54 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
+
+  
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-    <link rel="stylesheet" href="_static/css/main.css" type="text/css" />
-  
-    <link rel="stylesheet" href="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.css" type="text/css" />
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="Caravagene 0.1.0 documentation" href="index.html"/>
-        <link rel="next" title="Saving a construct as JPEG" href="examples/construct_jpeg.html"/>
-        <link rel="prev" title="Caravagene" href="index.html"/> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Saving a construct as JPEG" href="examples/construct_jpeg.html" />
+    <link rel="prev" title="Caravagene" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> Caravagene
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Caravagene
           
 
           
             
-            <img src="_static/html_logo.png" class="logo" />
+            <img src="_static/html_logo.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -90,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -112,13 +106,14 @@
             
           
         </div>
+        
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Caravagene</a>
@@ -126,9 +121,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -149,7 +145,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>Caravagene Reference manual</li>
     
@@ -172,13 +168,7 @@
             
   <div class="section" id="caravagene-reference-manual">
 <span id="reference"></span><h1>Caravagene Reference manual<a class="headerlink" href="#caravagene-reference-manual" title="Permalink to this headline">¶</a></h1>
-
-            <style>
-            .section {
-                opacity: 1.0 !important;
-            }
-            </style>
-            <script>mermaid.initialize({startOnLoad:true});</script><div align="center" class="mermaid align-center">
+<script>mermaid.initialize({startOnLoad:true});</script><div align="center" class="mermaid align-center">
             graph LR;
  param1(category) --&gt; Part
  param2(label) --&gt; Part
@@ -199,179 +189,137 @@
  style param5 fill:none,stroke:none;
  style param6 fill:none,stroke:none;
         </div>
-        <dl class="class">
+        <dl class="py class">
 <dt id="caravagene.Part">
-<em class="property">class </em><code class="descclassname">caravagene.</code><code class="descname">Part</code><span class="sig-paren">(</span><em>category</em>, <em>label=''</em>, <em>sublabel=''</em>, <em>subscript=''</em>, <em>reversed=False</em>, <em>bg_color='none'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Part"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Part" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">caravagene.</code><code class="sig-name descname">Part</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">category</span></em>, <em class="sig-param"><span class="n">label</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">sublabel</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">subscript</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">reversed</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">bg_color</span><span class="o">=</span><span class="default_value">'none'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Part"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Part" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represent a genetic part.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>category</strong></p>
-<blockquote>
-<div><p>Either ‘promoter’, ‘CDS’… Defines the symbol displayed for this part</p>
-</div></blockquote>
-<p><strong>label</strong></p>
-<blockquote>
-<div><p>String that will be displayed on top of the part</p>
-</div></blockquote>
-<p><strong>sublabel</strong></p>
-<blockquote>
-<div><p>Note that will be written in grey below the label</p>
-</div></blockquote>
-<p><strong>subscript</strong></p>
-<blockquote>
-<div><p>Note that will be written below the part</p>
-</div></blockquote>
-<p><strong>reversed</strong></p>
-<blockquote>
-<div><p>True/False. Whether the part is in direct or indirect sense.</p>
-</div></blockquote>
-<p><strong>bg_color</strong></p>
-<blockquote class="last">
-<div><p>String representing any html color, which will be used as background
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>category</strong></dt><dd><p>Either ‘promoter’, ‘CDS’… Defines the symbol displayed for this part.</p>
+</dd>
+<dt><strong>label</strong></dt><dd><p>String that will be displayed on top of the part.</p>
+</dd>
+<dt><strong>sublabel</strong></dt><dd><p>Note that will be written in grey below the label.</p>
+</dd>
+<dt><strong>subscript</strong></dt><dd><p>Note that will be written below the part.</p>
+</dd>
+<dt><strong>reversed</strong></dt><dd><p>True/False. Whether the part is in direct or indirect sense.</p>
+</dd>
+<dt><strong>bg_color</strong></dt><dd><p>String representing any html color, which will be used as background
 to highlight this part.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="staticmethod">
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
 <dt id="caravagene.Part.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>part_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Part.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Part.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">part_dict</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Part.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Part.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a part from a dictionary.</p>
 <p>This is intended for Schema imports from JSON in web applications.
-This dictionnary should have the same parameters as the __init__
+This dictionary should have the same parameters as the __init__
 function (other parameters will be ignored).</p>
 </dd></dl>
 
-<dl class="attribute">
+<dl class="py method">
 <dt id="caravagene.Part.style">
-<code class="descname">style</code><a class="headerlink" href="#caravagene.Part.style" title="Permalink to this definition">¶</a></dt>
+<em class="property">property </em><code class="sig-name descname">style</code><a class="headerlink" href="#caravagene.Part.style" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the CSS style from the part’s parameters.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="caravagene.Construct">
-<em class="property">class </em><code class="descclassname">caravagene.</code><code class="descname">Construct</code><span class="sig-paren">(</span><em>parts</em>, <em>name=''</em>, <em>note=''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Construct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Construct" title="Permalink to this definition">¶</a></dt>
-<dd><p>Represent a genetic construct will several parts.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>parts</strong></p>
-<blockquote>
-<div><p>A list of Parts, in the order in which they appear in the construct.
+<em class="property">class </em><code class="sig-prename descclassname">caravagene.</code><code class="sig-name descname">Construct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">parts</span></em>, <em class="sig-param"><span class="n">name</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">note</span><span class="o">=</span><span class="default_value">''</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Construct"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Construct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represent a genetic construct with several parts.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>parts</strong></dt><dd><p>A list of Parts, in the order in which they appear in the construct.
 Alternatively, a pandas dataframe can be provided, with columns
 ‘label’, ‘category’, ‘sublabel’, ‘subscript’, ‘style’. The last column,
 ‘style’ can be for instance “bg:green bold”.</p>
-</div></blockquote>
-<p><strong>name</strong></p>
-<blockquote>
-<div><p>Name of the construct. Will be displayed on top of the construct’s plot.</p>
-</div></blockquote>
-<p><strong>note</strong></p>
-<blockquote class="last">
-<div><p>Some text that will be displayed between the construct’s name and plot.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="staticmethod">
+</dd>
+<dt><strong>name</strong></dt><dd><p>Name of the construct. Will be displayed on top of the construct’s plot.</p>
+</dd>
+<dt><strong>note</strong></dt><dd><p>Some text that will be displayed between the construct’s name and plot.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
 <dt id="caravagene.Construct.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>cst_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Construct.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Construct.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cst_dict</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#Construct.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.Construct.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a construct from a dictionary.</p>
 <p>This is intended for Schema imports from JSON in web applications.
-This dictionnary should have the same parameters as the __init__
+This dictionary should have the same parameters as the __init__
 function (other parameters will be ignored).</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="caravagene.ConstructList">
-<em class="property">class </em><code class="descclassname">caravagene.</code><code class="descname">ConstructList</code><span class="sig-paren">(</span><em>constructs</em>, <em>title='auto'</em>, <em>note=''</em>, <em>size=13</em>, <em>font='Helvetica'</em>, <em>orientation='portrait'</em>, <em>width=600</em>, <em>page_size='A4'</em>, <em>use_google_fonts=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">caravagene.</code><code class="sig-name descname">ConstructList</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">constructs</span></em>, <em class="sig-param"><span class="n">title</span><span class="o">=</span><span class="default_value">'auto'</span></em>, <em class="sig-param"><span class="n">note</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">size</span><span class="o">=</span><span class="default_value">13</span></em>, <em class="sig-param"><span class="n">font</span><span class="o">=</span><span class="default_value">'Helvetica'</span></em>, <em class="sig-param"><span class="n">orientation</span><span class="o">=</span><span class="default_value">'portrait'</span></em>, <em class="sig-param"><span class="n">width</span><span class="o">=</span><span class="default_value">600</span></em>, <em class="sig-param"><span class="n">page_size</span><span class="o">=</span><span class="default_value">'A4'</span></em>, <em class="sig-param"><span class="n">use_google_fonts</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represent a genetic construct will several parts.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>constructs</strong></p>
-<blockquote>
-<div><p>A list of Constructss, in the order in which they appear in the plot.
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>constructs</strong></dt><dd><p>A list of Constructss, in the order in which they appear in the plot.
 Alternatively, a path to an excel spreadsheet can be provided (see docs
 for explanations on the spreadsheet format).</p>
-</div></blockquote>
-<p><strong>title</strong></p>
-<blockquote>
-<div><p>Title for this list of constructs. Will be displayed on top of the plots.</p>
-</div></blockquote>
-<p><strong>note</strong></p>
-<blockquote>
-<div><p>Some text that will be displayed between the title and the plots.</p>
-</div></blockquote>
-<p><strong>size</strong></p>
-<blockquote>
-<div><p>Size of the font for labels, which also scales the size of sublabel,
+</dd>
+<dt><strong>title</strong></dt><dd><p>Title for this list of constructs. Will be displayed on top of the plots.</p>
+</dd>
+<dt><strong>note</strong></dt><dd><p>Some text that will be displayed between the title and the plots.</p>
+</dd>
+<dt><strong>size</strong></dt><dd><p>Size of the font for labels, which also scales the size of sublabel,
 subscript, and the symbol itself.</p>
-</div></blockquote>
-<p><strong>orientation</strong></p>
-<blockquote>
-<div><p>‘portrait’ or ‘landscape’. Orientation of the page when exporting to PDF</p>
-</div></blockquote>
-<p><strong>page_size</strong></p>
-<blockquote>
-<div><p>Page format when exporting to PDF</p>
-</div></blockquote>
-<p><strong>width</strong></p>
-<blockquote>
-<div><p>Page width when exporting to an image</p>
-</div></blockquote>
-<p><strong>font</strong></p>
-<blockquote>
-<div><p>Name of the font to use for all texts</p>
-</div></blockquote>
-<p><strong>use_google_fonts</strong></p>
-<blockquote class="last">
-<div><p>Whether the font should be obtained from Google Fonts (will only work
+</dd>
+<dt><strong>orientation</strong></dt><dd><p>‘portrait’ or ‘landscape’. Orientation of the page when exporting to PDF.</p>
+</dd>
+<dt><strong>page_size</strong></dt><dd><p>Page format when exporting to PDF.</p>
+</dd>
+<dt><strong>width</strong></dt><dd><p>Page width when exporting to an image.</p>
+</dd>
+<dt><strong>font</strong></dt><dd><p>Name of the font to use for all texts.</p>
+</dd>
+<dt><strong>use_google_fonts</strong></dt><dd><p>Whether the font should be obtained from Google Fonts (will only work
 with an Internet access).</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="staticmethod">
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
 <dt id="caravagene.ConstructList.from_dict">
-<em class="property">static </em><code class="descname">from_dict</code><span class="sig-paren">(</span><em>csts_dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.from_dict" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">from_dict</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">csts_dict</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.from_dict"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.from_dict" title="Permalink to this definition">¶</a></dt>
 <dd><p>Create a constructs list from a dictionary.</p>
 <p>This is intended for Schema imports from JSON in web applications.
-This dictionnary should have the same parameters as the __init__
+This dictionary should have the same parameters as the __init__
 function (other parameters will be ignored).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="caravagene.ConstructList.to_html">
-<code class="descname">to_html</code><span class="sig-paren">(</span><em>outfile=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.to_html" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_html</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.to_html"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.to_html" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a HTML page ready for browser rendering of the plots.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="caravagene.ConstructList.to_image">
-<code class="descname">to_image</code><span class="sig-paren">(</span><em>outfile=None</em>, <em>extension=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.to_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.to_image" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">extension</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.to_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.to_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an image with all the construct plots.</p>
-<p>If <code class="docutils literal"><span class="pre">outfile</span></code> is not provided, the function returns raw binary PDF
+<p>If <code class="docutils literal notranslate"><span class="pre">outfile</span></code> is not provided, the function returns raw binary PDF
 data as a string. In that case the extension (‘png’, ‘jpeg’) must be
 provided.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="caravagene.ConstructList.to_pdf">
-<code class="descname">to_pdf</code><span class="sig-paren">(</span><em>outfile=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.to_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.to_pdf" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">to_pdf</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">outfile</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/caravagene/caravagene.html#ConstructList.to_pdf"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#caravagene.ConstructList.to_pdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a PDF with all the construct plots.</p>
-<p>If <code class="docutils literal"><span class="pre">outfile</span></code> is not provided, the function returns raw binary PDF
+<p>If <code class="docutils literal notranslate"><span class="pre">outfile</span></code> is not provided, the function returns raw binary PDF
 data as a string.</p>
 </dd></dl>
 
@@ -381,9 +329,7 @@ data as a string.</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -392,7 +338,7 @@ data as a string.</p>
         <a href="examples/construct_jpeg.html" class="btn btn-neutral float-right" title="Saving a construct as JPEG" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Caravagene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Caravagene" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -401,11 +347,19 @@ data as a string.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2017, Edinburgh Genome Foundry.
+        
+        &copy; Copyright 2017, Edinburgh Genome Foundry
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -417,38 +371,15 @@ data as a string.</p>
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.1.0',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.rawgit.com/knsv/mermaid/7.0.0/dist/mermaid.min.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
+
+  
+  
+    
    
 
 </body>
