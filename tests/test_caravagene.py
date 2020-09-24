@@ -3,8 +3,6 @@ from caravagene import Part, Construct, ConstructList
 
 
 def test_part():
-    part_instance = Part("promoter", label="my promoter")
-    part_instance.style
     Part.from_dict(
         {
             "category": "promoter",
@@ -16,9 +14,15 @@ def test_part():
         }
     )
 
+    part_instance = Part("promoter", label="my promoter")
+    assert part_instance.category == "promoter"
+    assert part_instance.label == "my promoter"
+    assert part_instance.reversed is False
+    assert part_instance.style
+
 
 def test_construct():
-    construct_from_dict = Construct.from_dict(
+    Construct.from_dict(
         {
             "parts": [
                 {
@@ -47,31 +51,32 @@ def test_construct():
     )
     assert construct.name == "Test construct"
     assert construct.note == "Test note"
+    assert len(construct.parts) == 4
 
 
 def test_constructlist(tmpdir):
-    constructs_from_dict = {
-        "constructs": [
-            {
-                "parts": [
-                    {
-                        "category": "promoter",
-                        "label": "my promoter",
-                        "subscript": "p12",
-                        "reversed": False,
-                        "sublabel": "lorem ipsum",
-                        "bg_color": "none",
-                    }
-                ],
-                "name": "Test construct",
-                "note": "Test note",
-            }
-        ]
-    }
-
-    constructs_from_spreadsheet = ConstructList(
-        os.path.join("tests", "from_spreadsheet.xlsx")
+    ConstructList.from_dict(
+        {
+            "constructs": [
+                {
+                    "parts": [
+                        {
+                            "category": "promoter",
+                            "label": "my promoter",
+                            "subscript": "p12",
+                            "reversed": False,
+                            "sublabel": "lorem ipsum",
+                            "bg_color": "none",
+                        }
+                    ],
+                    "name": "Test construct",
+                    "note": "Test note",
+                }
+            ]
+        }
     )
+
+    ConstructList(os.path.join("tests", "from_spreadsheet.xlsx"))
 
     constructs = ConstructList(
         [
@@ -83,8 +88,15 @@ def test_constructlist(tmpdir):
                     Part("insulator", label="I1"),
                 ]
             )
-        ]
+        ],
+        note="This is a note",
     )
+
+    assert constructs.note == "This is a note"
+    assert constructs.orientation == "portrait"
+    assert constructs.page_size == "A4"
+    assert constructs.size == 13
+    assert constructs.width == 600
 
     constructs.to_image(os.path.join(str(tmpdir), "construct.jpeg"))
     constructs.to_html(os.path.join(str(tmpdir), "construct.html"))
