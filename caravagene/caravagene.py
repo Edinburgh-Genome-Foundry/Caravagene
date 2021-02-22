@@ -237,7 +237,9 @@ class ConstructList:
                 self.title = self.title.replace("_", " ")
             sheet_names = pandas.ExcelFile(constructs).sheet_names
             if "options" in sheet_names:
-                df = pandas.read_excel(constructs, sheet_name="options")
+                df = pandas.read_excel(
+                    constructs, sheet_name="options", engine="openpyxl"
+                )
                 self.__dict__.update(
                     {
                         row.field: row.value
@@ -255,7 +257,10 @@ class ConstructList:
                     }
                 )
             constructs = [
-                Construct(pandas.read_excel(constructs, sheet_name=sheet), name=sheet)
+                Construct(
+                    pandas.read_excel(constructs, sheet_name=sheet, engine="openpyxl"),
+                    name=sheet,
+                )
                 for sheet in sheet_names
                 if sheet != "options"
             ]

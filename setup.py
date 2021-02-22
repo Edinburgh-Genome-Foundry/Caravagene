@@ -15,7 +15,7 @@ setup(
     license="MIT",
     keywords="SBOL DNA assembly plot",
     scripts=["scripts/caravagene"],
-    install_requires=["docopt", "xlrd", "jinja2", "pandas"],
+    install_requires=["docopt", "openpyxl", "jinja2", "pandas"],
     include_package_data=True,
     packages=find_packages(exclude="docs"),
 )
