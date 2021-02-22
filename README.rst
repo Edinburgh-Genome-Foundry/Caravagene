@@ -1,7 +1,7 @@
 .. raw:: html
 
     <p align="center">
-    <img alt="caravagene Logo" title="lala Logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png" width="500">
+    <img alt="Caravagene logo" title="Caravagene logo" src="https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png" width="500">
     <br /><br />
     </p>
 
@@ -45,19 +45,19 @@ showing multiple constructs:
         title="My constructs",
         constructs=[
             Construct(name="ASM1", parts=[
-                Part('HA1', category='homology-arm'),
-                Part('rc1', category='recombinase-recognition-sequence'),
-                Part('my promoter', category='promoter'),
-                Part('RNA stability', category='rna-stability-sequence'),
-                Part('<i>acs</i>', category='CDS'),
-                Part('PolyA', category='terminator'),
-                Part('I1', category='insulator'),
+                Part(label='HA1', category='homology-arm'),
+                Part(label='rc1', category='recombinase-recognition-sequence'),
+                Part(label='my promoter', category='promoter'),
+                Part(label='RNA stability', category='rna-stability-sequence'),
+                Part(label='<i>acs</i>', category='CDS'),
+                Part(label='PolyA', category='terminator'),
+                Part(label='I1', category='insulator'),
             ]),
             Construct(name="ASM2", parts=[
-                Part('my promoter', category='promoter'),
-                Part('gene with a very very long name', category='CDS'),
-                Part('PolyA', category='terminator'),
-                Part('I1', category='insulator')
+                Part(label='my promoter', category='promoter'),
+                Part(label='gene with a very very long name', category='CDS'),
+                Part(label='PolyA', category='terminator'),
+                Part(label='I1', category='insulator')
             ])
         ]
     )
@@ -130,7 +130,7 @@ You can install caravagene through PIP:
 
 .. code:: shell
 
-    sudo pip install caravagene
+    pip install caravagene
 
 Alternatively, you can unzip the source code in a folder and type:
 
