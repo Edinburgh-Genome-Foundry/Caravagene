@@ -14,7 +14,7 @@ jobs:
           python-version: "3.9"
       - name: Install dependencies
         run: |
-          apt-get install wkhtmltopdf
+          sudo apt-get install wkhtmltopdf
           python -m pip install --upgrade pip
           pip install pytest pytest-cov coveralls
       - name: Install
