@@ -322,6 +322,7 @@ class ConstructList:
         process = sp.Popen(
             [
                 "wkhtmltopdf",
+                "--enable-local-file-access",
                 "--quiet",
                 "--page-size",
                 self.page_size,
@@ -355,6 +356,7 @@ class ConstructList:
         process = sp.Popen(
             [
                 "wkhtmltoimage",
+                "--enable-local-file-access",
                 "--format",
                 extension,
                 "--width",
