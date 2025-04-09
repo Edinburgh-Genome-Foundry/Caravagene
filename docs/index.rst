@@ -1,11 +1,10 @@
-Caravagene
-==========
 
 .. image:: https://raw.githubusercontent.com/Edinburgh-Genome-Foundry/Caravagene/master/logo.png
   :alt: [logo]
   :align: center
   :width: 600px
 
+----
 
 Caravagene is a Python library to plot schemas of DNA constructs from a list of parts:
 
@@ -106,13 +105,13 @@ or **command-line (re-render when the spreadsheet changes on disk):**
 
 
 Installation
--------------
+------------
 
 Caravagene requires `WkHTMLtoPDF <https://wkhtmltopdf.org/>`_ to be installed. On Ubuntu, install it with:
 
 .. code:: shell
 
-   (sudo) apt-get install wkhtmltopdf
+   apt-get install wkhtmltopdf
 
 
 You can install caravagene through PIP:
@@ -121,19 +120,20 @@ You can install caravagene through PIP:
 
    sudo pip install caravagene
 
-Alternatively, you can unzip the source code in a folder and type:
+For using it in the terminal, install with:
 
 .. code:: shell
 
-   sudo python setup.py install
+    pip install caravagene[cli]
 
 
 Licence
---------
+-------
 
 Caravagene is an open-source software originally written at the `Edinburgh Genome Foundry
-<http://www.genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT licence (Copyright 2017 Edinburgh Genome Foundry).
+<http://www.genomefoundry.org>`_ by `Zulko`_
+and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT license
+(Copyright 2017 Edinburgh Genome Foundry, University of Edinburgh).
 Everyone is welcome to contribute!
 
 
@@ -172,5 +172,5 @@ Everyone is welcome to contribute!
 
 
 .. _Zulko: https://github.com/Zulko/
-.. _Github: https://github.com/EdinburghGenomeFoundry/caravagene
-.. _PYPI: https://pypi.python.org/pypi/caravagene
+.. _GitHub: https://github.com/EdinburghGenomeFoundry/Caravagene
+.. _PyPI: https://pypi.org/project/caravagene/

@@ -1,7 +1,7 @@
 .. _reference:
 
-Caravagene Reference manual
-==========================
+Caravagene reference manual
+===========================
 
 .. mermaid::
    :align: center

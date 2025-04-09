@@ -189,17 +189,17 @@ class ConstructList:
       Size of the font for labels, which also scales the size of sublabel,
       subscript, and the symbol itself.
 
+    font
+      Name of the font to use for all texts.
+
     orientation
       'portrait' or 'landscape'. Orientation of the page when exporting to PDF.
-
-    page_size
-      Page format when exporting to PDF.
 
     width
       Page width when exporting to an image.
 
-    font
-      Name of the font to use for all texts.
+    page_size
+      Page format when exporting to PDF.
 
     use_google_fonts
       Whether the font should be obtained from Google Fonts (will only work

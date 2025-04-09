@@ -134,7 +134,10 @@ You can install caravagene through PIP:
 
 For using it in the terminal, install with:
 
+.. code:: shell
+
     pip install caravagene[cli]
+
 
 Licence
 -------
