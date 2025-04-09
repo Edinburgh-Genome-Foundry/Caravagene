@@ -117,13 +117,13 @@ or **command-line (re-render when the spreadsheet changes on disk):**
 
 
 Installation
--------------
+------------
 
 Caravagene requires `WkHTMLtoPDF <https://wkhtmltopdf.org/>`_ to be installed. On Ubuntu, install it with:
 
 .. code:: shell
 
-    (sudo) apt-get install wkhtmltopdf
+    apt-get install wkhtmltopdf
 
 
 You can install caravagene through PIP:
@@ -132,17 +132,12 @@ You can install caravagene through PIP:
 
     pip install caravagene
 
-Alternatively, you can unzip the source code in a folder and type:
-
-.. code:: shell
-
-    sudo python setup.py install
-
 
 Licence
 -------
 
 Caravagene is an open-source software originally written at the `Edinburgh Genome Foundry
 <http://www.genomefoundry.org>`_ by `Zulko <https://github.com/Zulko>`_
-and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT licence (Copyright 2017 Edinburgh Genome Foundry).
+and `released on Github <https://github.com/Edinburgh-Genome-Foundry/Caravagene>`_ under the MIT licence
+(Copyright 2017 Edinburgh Genome Foundry, University of Edinburgh).
 Everyone is welcome to contribute!
