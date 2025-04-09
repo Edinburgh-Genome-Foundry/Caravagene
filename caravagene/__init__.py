@@ -1,4 +1,4 @@
-"""caravagene/__init__.py """
+"""caravagene/__init__.py"""
 
 # __all__ = []
 
