@@ -1,5 +1,4 @@
 import os
-import re
 import subprocess as sp
 
 from jinja2 import Template
