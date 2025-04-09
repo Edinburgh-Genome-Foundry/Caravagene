@@ -9,25 +9,25 @@ Usage:
 Where ``source`` is an excel spreadsheet, target either a pdf, html or
 image file. Option ``watch``
 
-
 """
 
-from docopt import docopt
-from caravagene import ConstructList
-import time
-from watchdog.observers import Observer
-from watchdog.events import PatternMatchingEventHandler
 
-if __name__ == "__main__":
+def main():
+    from docopt import docopt
+    from caravagene import ConstructList
+    import time
+    from watchdog.observers import Observer
+    from watchdog.events import PatternMatchingEventHandler
+
     params = docopt(__doc__)
 
     def convert():
         """Convert the spreadsheet to the selected format."""
         constructs = ConstructList(params["<source>"])
         target = params["<target>"]
-        if target.endswith('html'):
+        if target.endswith("html"):
             constructs.to_html(target)
-        elif target.endswith('pdf'):
+        elif target.endswith("pdf"):
             constructs.to_pdf(target)
         else:
             constructs.to_image(target)
@@ -37,19 +37,19 @@ if __name__ == "__main__":
         class MyHandler(PatternMatchingEventHandler):
             """Custom handler for this one precise source file."""
 
-            patterns = ['*.xls', '*.xlsx']
+            patterns = ["*.xls", "*.xlsx"]
 
             def on_modified(self, event):
                 """When the file is modified, convert again."""
-                print ('Converting...')
+                print("Converting...")
                 try:
                     convert()
                 except Exception as err:
-                    print ("Errored !!! ", "\n", err)
+                    print("Errored !!! ", "\n", err)
 
         event_handler = MyHandler()
         observer = Observer()
-        observer.schedule(event_handler, path='.', recursive=False)
+        observer.schedule(event_handler, path=".", recursive=False)
         observer.start()
         try:
             while True:
@@ -60,3 +60,7 @@ if __name__ == "__main__":
 
     else:
         convert()
+
+
+if __name__ == "__main__":
+    main()
